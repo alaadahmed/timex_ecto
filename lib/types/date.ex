@@ -45,7 +45,7 @@ defmodule Timex.Ecto.Date do
   ## Examples
      Using an Ecto.Date:
 
-      iex> Ecto.Date.from_erl({2017, 2, 1})
+      iex> Date.from_erl({2017, 2, 1})
       ...> |> Timex.Ecto.Date.load
       {:ok, ~D[2017-02-01]}
 
@@ -55,7 +55,7 @@ defmodule Timex.Ecto.Date do
       {:ok, ~D[2017-02-01]}
   """
   def load({_year, _month, _day} = date), do: {:ok, Timex.to_date(date)}
-  def load(%Ecto.Date{} = date), do: {:ok, Ecto.Date.to_erl(date) |> Timex.to_date}
+  def load(%Date{} = date), do: {:ok, Date.to_erl(date) |> Timex.to_date}
   def load(_), do: :error
 
   @doc """

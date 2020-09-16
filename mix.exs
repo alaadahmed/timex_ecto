@@ -4,7 +4,7 @@ defmodule TimexEcto.Mixfile do
   def project do
     [
       app: :timex_ecto,
-      version: "3.4.0",
+      version: "3.4.1",
       elixir: "~> 1.6",
       build_embedded: Mix.env() == :prod,
       start_permanent: Mix.env() == :prod,
@@ -31,19 +31,22 @@ defmodule TimexEcto.Mixfile do
   #
   # Type `mix help deps` for more examples and options
   defp deps do
-    [{:timex, "~> 3.6"},
-     {:ecto, "~> 2.2"},
-     {:postgrex, "~> 0.13", only: :test},
-     {:ex_doc, "~> 0.13", only: :dev}]
+    [
+      {:timex, "~> 3.6"},
+      {:ecto, "~> 3.4"},
+      {:postgrex, "~> 0.15.5", only: :test},
+      {:ex_doc, "~> 0.22.5", only: :dev}
+    ]
   end
 
   defp package do
-    [files: ["lib", "mix.exs", "README.md", "LICENSE.md"],
-     maintainers: ["Paul Schoenfelder"],
-     licenses: ["MIT"],
-     description: "A plugin for Ecto and Timex which allows use of Timex types with Ecto",
-     links: %{"GitHub": "https://github.com/bitwalker/timex_ecto",
-              "Docs": "https://timex.readme.io"}]
+    [
+      files: ["lib", "mix.exs", "README.md", "LICENSE.md"],
+      maintainers: ["Paul Schoenfelder"],
+      licenses: ["MIT"],
+      description: "A plugin for Ecto and Timex which allows use of Timex types with Ecto",
+      links: %{GitHub: "https://github.com/bitwalker/timex_ecto", Docs: "https://timex.readme.io"}
+    ]
   end
 
   defp elixirc_paths(:test), do: ["lib", "test/support"]
